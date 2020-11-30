@@ -131,7 +131,33 @@ namespace intento12
             }
             #endregion
             //finalizacion union de paquetes con camion
+
+            //paquetes no despachados
+            #region 
+
           
+            Console.WriteLine("Estos paquetes no fueron cargados en ningun camion :");
+            Console.WriteLine("");
+            Console.WriteLine("--------------------------------------------------------- ");
+
+            for (int iterador = 0; iterador < listapaquetes.Length; iterador++)
+            {
+                if (listapaquetes[iterador].Setcargado() == false)
+                {
+                    Console.WriteLine(" paquete con el id: " + listapaquetes[iterador].getId() + " con el volumen: " + listapaquetes[iterador].GetVolumen() + " con elpeso: " + listapaquetes[iterador].GetPeso());
+                    Console.WriteLine("--------------------------------------------------------- ");
+                    int suma = 0;
+                    suma = suma + listapaquetes[iterador].GetPeso();
+                    Console.WriteLine("esto es el peso total de los paquetes no despachados---" + suma);
+                    double sumavolumen = 0;
+
+                    sumavolumen = sumavolumen + listapaquetes[iterador].GetVolumen();
+                    Console.WriteLine("esto es el volumen total de los paquetes no despachados---" + sumavolumen);
+                }
+
+            }
+            #endregion
+            // FInalizacion paquetes no despachados
 
             // imprimir camiones y paquetes
             #region 
@@ -155,27 +181,7 @@ namespace intento12
             //finalizacion imprimir camiones y paquetes
 
 
-            //paquetes no despachados
-            #region 
-
-            double volumen_suma;
-            int peso_total;
-            Console.WriteLine("Estos paquetes no fueron cargados en ningun camion :");
-            Console.WriteLine("");
-            Console.WriteLine("--------------------------------------------------------- ");
-            for (int iterador = 0; iterador < listapaquetes.Length; iterador++)
-            {
-                if (listapaquetes[iterador].Setcargado() == false)
-                {
-                    Console.WriteLine(" paquete con el id: " + listapaquetes[iterador].getId() + " con el volumen: " + listapaquetes[iterador].GetVolumen() + " con elpeso: " + listapaquetes[iterador].GetPeso());
-                    Console.WriteLine("--------------------------------------------------------- ");
-                    volumen_suma = listapaquetes[1].sumadelosnocargados();
-                    peso_total = listapaquetes[0].GetPeso() + listapaquetes[0].GetPeso();
-                }
-
-            }
-            #endregion
-            // FInalizacion paquetes no despachados
+           
         }
 
         private static bool Paquete(object p)
